@@ -1,0 +1,29 @@
+{
+  "name": "apiprojeto",
+  "version": "1.0.0",
+  "description": "Projeto PW2 para aplicar conceitos vistos em aulas para a elaboração de uma loja de Celulares",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelcursino/apiProjeto.git"
+  },
+  "keywords": [
+    "PROJETO",
+    "ETEC",
+    "PW2",
+    "LOJA_CELULARES",
+    "AULA"
+  ],
+  "author": "Samuel Cursino Moya De Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelcursino/apiProjeto/issues"
+  },
+  "homepage": "https://github.com/samuelcursino/apiProjeto#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

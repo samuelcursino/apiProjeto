@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/samuelcursino/apiProjeto#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.23.1"
   }
 }

@@ -1,23 +1,23 @@
 const express = require('express');
 
-const modelCategoria = require('../model/modelClientes');
+const modelCliente = require('../model/modelCliente');
 
 const router = express.Router();
 
-router.post('/cadastrar_categoria', (req, res)=>{
-    res.send('Rota de cadastro de categoria');
+router.post('/cadastrarCliente', (req, res)=>{
+    res.send('Rota de cadastro de cliente');
 });
 
-router.get('/listar_categoria', (req, res)=>{
-    res.send('Rota de listagem de categoria');
+router.get('/listarCliente', (req, res)=>{
+    res.send('Rota de listagem de cliente');
 });
 
-router.put('/alterar_categoria', (req, res)=>{
-    res.send('Rota de alteração de categoria');
+router.put('/alterarCliente', (req, res)=>{
+    res.send('Rota de alteração de cliente');
 });
 
-router.delete('/excluir_categoria', (req, res)=>{
-    res.send('Rota de exclusão de categoria');
+router.delete('/excluirCliente', (req, res)=>{
+    res.send('Rota de exclusão de cliente');
 });
 
 module.exports = router;

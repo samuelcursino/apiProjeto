@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const connection = require('../database/database');
 
-const modelCategoria = connection.define(
+const modelCliente = connection.define(
     'tbl_cliente',
     {
         cod_cliente:{
@@ -16,3 +16,7 @@ const modelCategoria = connection.define(
         }
     }
 );
+
+//modelCliente.sync({force:true});
+
+module.exports = modelCliente;

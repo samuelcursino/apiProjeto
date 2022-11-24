@@ -4,7 +4,7 @@
   "description": "Projeto PW2 para aplicar conceitos vistos em aulas para a elaboração de uma loja de Celulares",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

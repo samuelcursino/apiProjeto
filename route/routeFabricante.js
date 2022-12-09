@@ -1,28 +1,28 @@
 const express = require('express');
 
-const modelCliente = require('../model/modelCliente');
+const modelFabricante = require('../model/modelFabricante');
 
 const router = express.Router();
 
-// -------------------------------------- ROTA DE CADASTRAR CLIENTE ------------------------------------
-router.post('/cadastrarCliente', (req, res)=>{
+// -------------------------------------- ROTA DE CADASTRAR FABRICANTE ------------------------------------
+router.post('/cadastrarFabricante', (req, res)=>{
     console.log(req.body);    
-    let {nome_cliente} = req.body;
-    modelCliente.create(
-        //DADOS DA INSERÇÂO DE CLIENTES
-        {nome_cliente}
+    let {id_fabricante, nome, email, telefone} = req.body;
+    modelFabricante.create(
+        //DADOS DA INSERÇÂO DO FABRICANTE
+        {id_fabricante, nome, email, telefone}
     ).then(
         ()=>{
             return res.status(201).json({
                 erroStatus:false,
-                mensagemStatus:"CLIENTE INSERIDO COM SUCESSO."
+                mensagemStatus:"FABRICANTE INSERIDO COM SUCESSO."
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO CADASTRAR O CLIENTE.",
+                mensagemStatus:"ERRO AO CADASTRAR O FABRICANTE.",
                 errorObject:error
             });
         }
@@ -30,16 +30,16 @@ router.post('/cadastrarCliente', (req, res)=>{
 });
 // -----------------------------------------------------------------------------------------------------
 
-// ------------------------------ ROTA DE LISTAGEM DE CLIENTE SEM CRITÉRIO -----------------------------
-router.get('/listarCliente', (req, res)=>{
+// ------------------------------ ROTA DE LISTAGEM DE FABRICANTE -----------------------------
+router.get('/listarFabricante', (req, res)=>{
 
-    modelCliente.findAll()
+    modelFabricante.findAll()
         .then(
             (response)=>{
                 //console.log(response);
                 return res.status(200).json({
                     erroStatus:false,
-                    mensagemStatus:"CLIENTES LISTADOS COM SUCESSO.",
+                    mensagemStatus:"FABRICANTE LISTADA COM SUCESSO.",
                     data:response
                 })
             }
@@ -47,7 +47,7 @@ router.get('/listarCliente', (req, res)=>{
             (error)=>{
                 return res.status(400).json({
                     erroStatus:true,
-                    mensagemStatus:"ERRO AO LISTAR OD CLIENTES.",
+                    mensagemStatus:"ERRO AO LISTAR A FABRICANTE.",
                     errorObject:error
                 });
             }
@@ -56,19 +56,19 @@ router.get('/listarCliente', (req, res)=>{
 });
 // -----------------------------------------------------------------------------------------------------
 
-//------------------------------ ROTA DE LISTAGEM DE CLIENTE POR COD_CLIENTE ---------------------------
-router.get('/listarClientePK/:cod_cliente', (req, res)=>{
+//------------------------------ ROTA DE LISTAGEM DE FABRICANTE POR ID ---------------------------
+router.get('/listarFabricantePK/:id_fabricante', (req, res)=>{
 
-    //DECLARAR E RECEBER O DADO DE CODIGO DO CLIENTE
-    let {cod_cliente} = req.params;
+    //DECLARAR E RECEBER O ID
+    let {id_fabricante} = req.params;
 
     //AÇÃO DE SELEÇÃO DE DADOS DO SEQUELIZE
-    modelCliente.findByPk(cod_cliente)
+    modelFabricante.findByPk(id_fabricante)
     .then(
         (response)=>{
             return res.status(200).json({
                 erroStatus:false,
-                mensagemStatus:"CLIENTE RECUPERADO COM SUCESSO.",
+                mensagemStatus:"FABRICANTE RECUPERADA COM SUCESSO.",
                 data:response
             })
         }
@@ -77,7 +77,7 @@ router.get('/listarClientePK/:cod_cliente', (req, res)=>{
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO RECUPERAR O CLIENTE.",
+                mensagemStatus:"ERRO AO RECUPERAR A FABRICANTE.",
                 errorObject:error
             });
         }
@@ -85,17 +85,17 @@ router.get('/listarClientePK/:cod_cliente', (req, res)=>{
 });
 // -----------------------------------------------------------------------------------------------------
 
-// ------------------------- ROTA DE LISTAGEM DE CLIENTE POR NOME_CLIENTE --------------------------
-router.get('/listarClienteNOME/:nome_cliente', (req, res)=>{
+// ------------------------- ROTA DE LISTAGEM DE FABRICANTE POR NOME --------------------------
+router.get('/listarFabricanteNOME/:nome', (req, res)=>{
 
-    let {nome_cliente} = req.params;
+    let {nome} = req.params;
 
-    modelCliente.findOne({attributes:['cod_cliente', 'nome_cliente'],where:{nome_cliente}})
+    modelFabricante.findOne({attributes:['id_fabricante', 'nome', 'email', 'telefone'],where:{nome}})
     .then(
         (response)=>{
             return res.status(200).json({
                 erroStatus:false,
-                mensagemStatus:"CLIENTE RECUPERADO COM SUCESSO.",
+                mensagemStatus:"FABRICANTE RECUPERADA COM SUCESSO.",
                 data:response
             })
         }
@@ -104,7 +104,7 @@ router.get('/listarClienteNOME/:nome_cliente', (req, res)=>{
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO RECUPERARO CLIENTE.",
+                mensagemStatus:"ERRO AO RECUPERAR A FABRICANTE.",
                 errorObject:error
             });
         }
@@ -112,26 +112,26 @@ router.get('/listarClienteNOME/:nome_cliente', (req, res)=>{
 });
 // -----------------------------------------------------------------------------------------------------
 
-// ----------------------------- ROTA DE ALTERAÇÃO DE CLIENTE ----------------------------------------
-router.put('/alterarCliente', (req, res)=>{
+// ----------------------------- ROTA DE ALTERAÇÃO DE FABRICANTE ----------------------------------------
+router.put('/alterarFabricante', (req, res)=>{
 
-    const {cod_cliente, nome_cliente} = req.body;
+    const {id_fabricante, nome, email , telefone} = req.body;
 
-    modelCliente.update(
-        {nome_cliente},
-        {where:{cod_cliente}}
+    modelFabricante.update(
+        {nome, email, telefone},
+        {where:{id_fabricante}}
     ).then(
         ()=>{
             return res.status(200).json({
                 erroStatus:false,
-                mensagemStatus:"CLIENTE ALTERADO COM SUCESSO."
+                mensagemStatus:"FABRICANTE ALTERADA COM SUCESSO."
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO ALTERAR O CLIENTE.",
+                mensagemStatus:"ERRO AO ALTERAR A FABRICANTE.",
                 errorObject:error
             });
         }
@@ -139,25 +139,25 @@ router.put('/alterarCliente', (req, res)=>{
 });
 // -----------------------------------------------------------------------------------------------------
 
-// ----------------------------------- ROTA DE EXCLUSÃO DE CLIENTE -----------------------------------
-router.delete('/excluirCliente/:cod_cliente', (req, res)=>{
+// ----------------------------------- ROTA DE EXCLUSÃO DE FABRICANTE-----------------------------------
+router.delete('/excluirFabricante/:id_fabricante', (req, res)=>{
     console.log(req.params);
-    let {cod_cliente} = req.params
+    let {id_fabricante} = req.params
 
-    modelCliente.destroy(
-        {where:{cod_cliente}}
+    modelFabricante.destroy(
+        {where:{id_fabricante}}
     ).then(
         ()=>{
             return res.status(200).json({
                 erroStatus:false,
-                mensagemStatus:"CLIENTE EXCLUIDO COM SUCESSO."
+                mensagemStatus:"FABRICANTE EXCLUIDA COM SUCESSO."
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO EXCLUIR O CLIENTE.",
+                mensagemStatus:"ERRO AO EXCLUIR A FABRICANTE.",
                 errorObject:error
             });
         }

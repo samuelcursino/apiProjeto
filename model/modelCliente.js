@@ -5,12 +5,20 @@ const connection = require('../database/database');
 const modelCliente = connection.define(
     'tbl_cliente',
     {
-        cod_cliente:{
-            type: Sequelize.INTEGER,
+        cpf:{
+            type: Sequelize.STRING(20),
             primaryKey: true,
-            autoIncrement:true
+            autoIncrement:false
         },
-        nome_cliente:{
+        email:{
+            type: Sequelize.STRING(45),
+            allowNull: false
+        },
+        telefone:{
+            type: Sequelize.STRING(20),
+            allowNull: false
+        },
+        endereco:{
             type: Sequelize.STRING(100),
             allowNull: false
         }

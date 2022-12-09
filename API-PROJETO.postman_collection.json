@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "18fb8688-5897-4d06-a34c-baa012f2276f",
+		"name": "API-PROJETO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22798579"
+	},
+	"item": [
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "cadastrarCPF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"48830548906\",\r\n    \"email\":\"samuelsouza@gmail.com\",\r\n    \"telefone\":\"11942785147\",\r\n    \"endereco\":\"Rua rua\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cadastrarCPF",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cadastrarCPF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarCliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/listarCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarClienteCPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/listarClientePK/48830548906",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarClientePK",
+								"48830548906"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarClienteEMAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/listarClienteNOME/samuelsouza@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarClienteNOME",
+								"samuelsouza@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarEmail",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"987654321\",\r\n    \"email\":\"alterado\",\r\n    \"telefone\":\"1188889999\",\r\n    \"endereco\":\"rua tal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/alterarCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"alterarCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirCPF",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/excluirCliente/987654321",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"excluirCliente",
+								"987654321"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FABRICANTE",
+			"item": [
+				{
+					"name": "cadastrarFabricante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"nome\":\"Apple\",\r\n    \"email\":\"Apple@fabricante.com\",\r\n    \"telefone\":\"11912345678\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cadastrarFabricante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cadastrarFabricante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarFabricante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/listarFabricante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarFabricante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarFabricantePK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/listarFabricantePK/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarFabricantePK",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarFabricanteNOME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/listarFabricanteNOME/apple",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listarFabricanteNOME",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarFabricante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"id_fabricante\":1,\r\n    \"nome\":\"Motorola\",\r\n    \"email\":\"Motorola@fabricante.com\",\r\n    \"telefone\":\"11942785147\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/alterarFabricante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"alterarFabricante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirFabricante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/excluirFabricante/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"excluirFabricante",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -4,8 +4,8 @@ const modelCliente = require('../model/modelCliente');
 
 const router = express.Router();
 
-// -------------------------------------- ROTA DE CADASTRAR CPF's ------------------------------------
-router.post('/cadastrarCPF', (req, res)=>{
+// -------------------------------------- ROTA DE CADASTRAR CLIENTE ------------------------------------
+router.post('/cadastrarCliente', (req, res)=>{
     console.log(req.body);    
     let {cpf, email, telefone, endereco} = req.body;
     modelCliente.create(
@@ -15,14 +15,14 @@ router.post('/cadastrarCPF', (req, res)=>{
         ()=>{
             return res.status(201).json({
                 erroStatus:false,
-                mensagemStatus:"CPF INSERIDO COM SUCESSO."
+                mensagemStatus:"CLIENTE INSERIDO COM SUCESSO."
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
                 erroStatus:true,
-                mensagemStatus:"ERRO AO CADASTRAR O CPF.",
+                mensagemStatus:"ERRO AO CADASTRAR O CLIENTE.",
                 errorObject:error
             });
         }
